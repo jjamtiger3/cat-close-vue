@@ -32,6 +32,9 @@ export default {
   computed: {
     currentLift () {
       return this.$store.state.lift
+    },
+    cardIsExist () {
+      return this.$store.state.cardIsExist;
     }
   },
   mounted() {
@@ -48,11 +51,15 @@ export default {
       this.numberList.sort(() => Math.random() - 0.5);
     },
     _draw() {
-      this.numberList.splice(0, 2);
-      this.incrementLift();
+      if (!this.cardIsExist) {
+        this.numberList.splice(0, 2);
+        this.incrementLift();
+        this.setCardIsExist(true);
+      }
     },
     ...mapMutations({
-      incrementLift: 'incrementLift'
+      incrementLift: 'incrementLift',
+      setCardIsExist: 'setCardIsExist'
     })
   }
 }
