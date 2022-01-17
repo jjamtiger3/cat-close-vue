@@ -12,7 +12,8 @@ export default {
   name: 'CatDice',
   data() {
       return {
-          numberList: [1, 2, 3, 4, 5, 6]
+          numberList: [1, 2, 3, 4, 5, 6],
+          reSelected: false
       }
   },
   methods: {
