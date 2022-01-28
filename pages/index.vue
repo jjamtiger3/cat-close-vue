@@ -22,12 +22,14 @@
         1. dices: Array<CatDice>: 주사위들을 저장한 객체
         2. 각 dice에서 주사위의 속성상태를 제어함
        -->
-      <cat-dice></cat-dice>
-      <cat-dice></cat-dice>
-      <cat-dice></cat-dice>
-      <cat-dice></cat-dice>
+       <div class="row align-self-center justify-content-center">
+         <cat-dice></cat-dice>
+         <cat-dice></cat-dice>
+         <cat-dice></cat-dice>
+         <cat-dice></cat-dice>
+       </div>
     </div>
-    <button v-on:click="drawDice()">주사위던지기</button>
+    <button id="roll" v-on:click="drawDice()">주사위던지기</button>
   </div>
 </template>
 
@@ -38,7 +40,6 @@
 </style>
 
 <script>
-import Vue from 'vue'
 import CatCard from '../components/CatCard.vue'
 import CatDice from '../components/CatDice.vue'
 import { mapMutations } from 'vuex'
@@ -63,10 +64,10 @@ export default {
   },
   mounted() {
     this._setNumberList();
-    this._setDices();
   },
   methods: {
     drawDice() {
+      alert(Math.floor(6 * Math.random()) + 1);
       // 카드가 세팅됐을때만 주사위가 굴러가도록 해야함
       this.diceList.forEach((dice) => {
         const number = dice.throwDice();
@@ -78,14 +79,6 @@ export default {
         2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11
       ];
       this._shuffle();
-    },
-    _setDices() {
-      for(let i = 0; i < 4; i += 1) {
-        const catDice = Vue.extend(CatDice);
-        const cat_dice = new catDice();
-        cat_dice.$mount('.cat-dice-container');
-        this.diceList.push(cat_dice);
-      }
     },
     _shuffle() {
       this.numberList.sort(() => Math.random() - 0.5);
