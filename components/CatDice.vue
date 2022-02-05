@@ -61,22 +61,19 @@
 @import "@/assets/css/dice-style.css";
 </style>
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'CatDice',
-  data() {
-      return {
-          numberList: [1, 2, 3, 4, 5, 6],
-          displayedMarking: 1,
-          spinning: false,
-          reSelected: false
-      }
-  },
   methods: {
       throwDice() {
-          return Math.floor(6 * Math.random()) + 1;
+          this.setSpinning(true);
       }
   },
   mounted() {
-  }
+  },
+  ...mapMutations({
+    setSpinning: 'setSpinning',
+    setReSelected: 'setReSelected'
+  })
 }
 </script>
