@@ -582,16 +582,16 @@
 }
 
 .cube-wrapper {
-    font-size: 100px
+    font-size: 50px;
 }
 
 .dice-num-1 .cube-wrapper {
-    font-size: 150px
+    font-size: 150px;
 }
 
 @media (min-width: 1280px) {
     .container {
-        max-width:1260px
+        max-width:1260px;
     }
 }
 

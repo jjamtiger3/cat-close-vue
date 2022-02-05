@@ -1,7 +1,7 @@
 <template>
     <div class="col-6 col-lg-3">
-        <div class="cube-wrapper">
-            <div class="cube" style="transition: transform 4s ease 0s; transform: rotateX(725deg) rotateY(1525deg) rotateZ(0deg);" data--r="[720,1440,0]">
+        <div ref="cube-wrapper" class="cube-wrapper">
+            <div ref="cube" class="cube">
                 <div class="face face-1 d-flex justify-content-center">
                     <span class="dot dot-1 align-self-center"></span>
                 </div>
@@ -66,14 +66,21 @@ export default {
   name: 'CatDice',
   methods: {
       throwDice() {
-          this.setSpinning(true);
-      }
+          // this.setSpinning(true);
+          this.$refs['cube-wrapper'].style.transition = 'transform 4s ease 0s';
+          this.$refs['cube-wrapper'].style.transform = 'rotateX(725deg) rotateY(1525deg) rotateZ(0deg)';
+          this.$refs.cube.querySelectorAll('.face').forEach((elem) => {
+            elem.style.transition = 'transform 4s ease 0s';
+            elem.style.transform = 'rotateX(725deg) rotateY(1525deg) rotateZ(0deg)';
+          });
+      },
+      ...mapMutations({
+        setSpinning: 'setSpinning',
+        setReSelected: 'setReSelected'
+      })
   },
   mounted() {
-  },
-  ...mapMutations({
-    setSpinning: 'setSpinning',
-    setReSelected: 'setReSelected'
-  })
+    this.$refs['cube'].style.transform = 'rotateX(725deg) rotateY(1525deg) rotateZ(0deg)';
+  }
 }
 </script>

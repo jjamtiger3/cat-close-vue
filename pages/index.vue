@@ -23,10 +23,10 @@
         2. 각 dice에서 주사위의 속성상태를 제어함
        -->
        <div class="row align-self-center justify-content-center">
-         <cat-dice></cat-dice>
-         <cat-dice></cat-dice>
-         <cat-dice></cat-dice>
-         <cat-dice></cat-dice>
+         <cat-dice ref="cat-dice1"></cat-dice>
+         <cat-dice ref="cat-dice2"></cat-dice>
+         <cat-dice ref="cat-dice3"></cat-dice>
+         <cat-dice ref="cat-dice4"></cat-dice>
        </div>
     </div>
     <button id="roll" v-on:click="drawDice()">주사위던지기</button>
@@ -54,7 +54,6 @@ export default {
     return {
       drawCnt: 9,
       numberList: [],
-      diceList: []
     }
   },
   computed: {
@@ -70,12 +69,11 @@ export default {
   },
   methods: {
     drawDice() {
-      alert(Math.floor(6 * Math.random()) + 1);
       // 카드가 세팅됐을때만 주사위가 굴러가도록 해야함
-      this.diceList.forEach((dice) => {
-        const number = dice.throwDice();
-        console.log(number);
-      });
+      for(var i in this.$refs) {
+        var dice = this.$refs[i];
+        dice.throwDice();
+      }
     },
     _setNumberList() {
       this.numberList = [
