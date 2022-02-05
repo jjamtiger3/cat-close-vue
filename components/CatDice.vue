@@ -67,7 +67,7 @@ export default {
       return {
           numberList: [1, 2, 3, 4, 5, 6],
           displayedMarking: 1,
-          rolling: false,
+          spinning: false,
           reSelected: false
       }
   },

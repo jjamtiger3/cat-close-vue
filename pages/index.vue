@@ -34,6 +34,9 @@
 </template>
 
 <style scoped>
+  .cat-dice-container {
+    width: 50%;
+  }
   .card-dummy {
     display: inline-block;
   }
