@@ -1,59 +1,54 @@
 <template>
-    <div class="col-6 col-lg-3">
-        <div ref="cube-wrapper" class="cube-wrapper">
-            <div ref="cube" class="cube">
-                <div class="face face-1 d-flex justify-content-center">
-                    <span class="dot dot-1 align-self-center"></span>
-                </div>
-                <div class="face face-2 d-flex justify-content-between">
-                    <span class="dot dot-1 align-self-start m-2"></span>
-                    <span class="dot dot-2 align-self-end m-2"></span>
-                </div>
-                <div class="face face-3 d-flex justify-content-between">
-                    <span class="dot align-self-start m-2"></span>
-                    <span class="dot align-self-center"></span>
-                    <span class="dot align-self-end m-2"></span>
-                </div>
-                <div class="face face-4 d-flex flex-wrap justify-content-between">
-                    <div class="w-100 align-self-start d-flex justify-content-between">
-                        <span class="dot m-2"></span>
-                        <span class="dot m-2"></span>
-                    </div>
-                    <div class="w-100 align-self-end d-flex justify-content-between">
-                        <span class="dot m-2"></span>
-                        <span class="dot m-2"></span>
-                    </div>
-                </div>
-                <div class="face face-5 d-flex justify-content-between flex-column">
-                    <div class="w-100 align-self-start d-flex justify-content-between">
-                        <span class="dot dot-1 m-2"></span>
-                        <span class="dot dot-2 m-2"></span>
-                    </div>
-                    <div class="w-100 align-self-center d-flex justify-content-center">
-                        <span class="dot"></span>
-                    </div>
-                    <div class="w-100 align-self-end d-flex justify-content-between">
-                        <span class="dot m-2"></span>
-                        <span class="dot m-2"></span>
-                    </div>
-                </div>
-                <div class="face face-6 d-flex align-items-stretch">
-                    <div class="w-50 d-flex flex-column">
-                        <span class="dot align-self-start m-auto"></span>
-                        <span class="dot align-self-center m-auto"></span>
-                        <span class="dot align-self-bottom m-auto"></span>
-                    </div>
-                    <div class="w-50 d-flex flex-column">
-                        <span class="dot align-self-start m-auto"></span>
-                        <span class="dot align-self-center m-auto"></span>
-                        <span class="dot align-self-bottom m-auto"></span>
-                    </div>
-                </div>
-                <div class="beam beam-1"></div>
-                <div class="beam beam-2"></div>
-                <div class="beam beam-3"></div>
+    <div class="scene">
+      <div class="cube">
+        <div class="cube__face cube__face--front">
+            <span class="dot dot-1 align-self-center"></span>
+        </div>
+        <div class="cube__face cube__face--back">
+            <span class="dot dot-1 align-self-start m-2"></span>
+            <span class="dot dot-2 align-self-end m-2"></span>
+        </div>
+        <div class="cube__face cube__face--right">
+            <span class="dot align-self-start m-2"></span>
+            <span class="dot align-self-center"></span>
+            <span class="dot align-self-end m-2"></span>
+        </div>
+        <div class="cube__face cube__face--left">
+            <div class="w-100 align-self-start d-flex justify-content-between">
+                <span class="dot m-2"></span>
+                <span class="dot m-2"></span>
+            </div>
+            <div class="w-100 align-self-end d-flex justify-content-between">
+                <span class="dot m-2"></span>
+                <span class="dot m-2"></span>
             </div>
         </div>
+        <div class="cube__face cube__face--top">
+            <div class="w-100 align-self-start d-flex justify-content-between">
+                <span class="dot dot-1 m-2"></span>
+                <span class="dot dot-2 m-2"></span>
+            </div>
+            <div class="w-100 align-self-center d-flex justify-content-center">
+                <span class="dot"></span>
+            </div>
+            <div class="w-100 align-self-end d-flex justify-content-between">
+                <span class="dot m-2"></span>
+                <span class="dot m-2"></span>
+            </div>
+        </div>
+        <div class="cube__face cube__face--bottom">
+            <div class="w-50 d-flex flex-column">
+                <span class="dot align-self-start m-auto"></span>
+                <span class="dot align-self-center m-auto"></span>
+                <span class="dot align-self-bottom m-auto"></span>
+            </div>
+            <div class="w-50 d-flex flex-column">
+                <span class="dot align-self-start m-auto"></span>
+                <span class="dot align-self-center m-auto"></span>
+                <span class="dot align-self-bottom m-auto"></span>
+            </div>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -67,12 +62,6 @@ export default {
   methods: {
       throwDice() {
           // this.setSpinning(true);
-          this.$refs['cube-wrapper'].style.transition = 'transform 4s ease 0s';
-          this.$refs['cube-wrapper'].style.transform = 'rotateX(725deg) rotateY(1525deg) rotateZ(0deg)';
-          this.$refs.cube.querySelectorAll('.face').forEach((elem) => {
-            elem.style.transition = 'transform 4s ease 0s';
-            elem.style.transform = 'rotateX(725deg) rotateY(1525deg) rotateZ(0deg)';
-          });
       },
       ...mapMutations({
         setSpinning: 'setSpinning',
@@ -80,7 +69,6 @@ export default {
       })
   },
   mounted() {
-    this.$refs['cube'].style.transform = 'rotateX(725deg) rotateY(1525deg) rotateZ(0deg)';
   }
 }
 </script>
