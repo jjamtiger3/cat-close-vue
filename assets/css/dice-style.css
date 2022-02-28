@@ -5,17 +5,72 @@
   margin: 40px;
   perspective: 100px;
 }
-
 @keyframes rotateCube {
-    from { transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);   }
-    to   { transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg); }
+  from {
+    transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes diceFront {
+  100% {
+    transform: translateZ(-100px) rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes diceRight {
+  100% {
+    transform: translateZ(-100px) rotateX(360deg) rotateY(270deg);
+  }
+}
+@keyframes diceBack {
+  100% {
+    transform: translateZ(-100px) rotateX(360deg) rotateY(180deg);
+  }
+}
+@keyframes diceLeft {
+  100% {
+    transform: translateZ(-100px) rotateX(360deg) rotateY(450deg);
+  }
+}
+@keyframes diceTop {
+  100% {
+    transform: translateZ(-100px) rotateX(270deg) rotateY(360deg);
+  }
+}
+@keyframes diceBottom {
+  100% {
+    transform: translateZ(-100px) rotateX(450deg) rotateY(360deg);
+  }
 }
 
 .cube {
   width: 50px;
   height: 50px;
   transform-style: preserve-3d;
-  animation: rotateCube 2s none linear normal;
+}
+.cube.cube-roll {
+  animation: rotateCube .5s infinite linear normal;
+}
+.cube.face-1 {
+  animation: diceFront .5s forwards linear;
+}
+.cube.face-2 {
+  animation: diceBack .5s forwards linear;
+}
+.cube.face-3 {
+  animation: diceLeft .5s forwards linear;
+}
+.cube.face-4 {
+  animation: diceRight .5s forwards linear;
+}
+.cube.face-5 {
+  animation: diceTop .5s forwards linear;
+}
+.cube.face-6 {
+  animation: diceBottom .5s forwards linear;
 }
 
 .cube.show-front  { transform: translateZ(-25px) rotateY(0deg); }

@@ -1,6 +1,6 @@
 <template>
     <div class="scene">
-      <div class="cube">
+      <div class="cube" ref="cube">
         <div class="cube__face cube__face--front">
             <span class="dot dot-1 align-self-center"></span>
         </div>
@@ -61,10 +61,18 @@ export default {
   name: 'CatDice',
   methods: {
       throwDice() {
-          // this.setSpinning(true);
+        this.$refs.cube.classList.add('cube-roll');
+        setTimeout((cube) => {
+          cube.classList.remove('cube-roll');
+          cube.classList.add(this.randomNumber());
+        }, 0.5, this.$refs.cube);
+      },
+      randomNumber() {
+        return `face-${Math.floor(Math.random() * 6)}`;
       },
       ...mapMutations({
         setSpinning: 'setSpinning',
+        spinning: 'getSpinning',
         setReSelected: 'setReSelected'
       })
   },
