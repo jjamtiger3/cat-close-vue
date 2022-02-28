@@ -8,12 +8,12 @@
       <cat-card v-bind:cat-count="this.numberList[1]" type="right"></cat-card>
     </div>
     <div class="cat-dice-container">
-      <!-- 
+      <!--
         주사위에 필요한 속성
         1. displayedMarking: 표시할 주사위 눈금
         2. rolling: 주사위가 굴러가는 상태
         3. reselected: 다시 굴리기를 해야할 때 필요한 선택됨 상태
-        
+
         주사위에 필요한 method
         1. drawDice: 주사위를 던짐
         2. reselect: 주사위를 다시 선택함
@@ -66,12 +66,13 @@ export default {
   },
   mounted() {
     this._setNumberList();
+    this._draw();
   },
   methods: {
     drawDice() {
       // 카드가 세팅됐을때만 주사위가 굴러가도록 해야함
-      for(var i in this.$refs) {
-        var dice = this.$refs[i];
+      for(let i in this.$refs) {
+        const dice = this.$refs[i];
         dice.throwDice();
       }
     },
