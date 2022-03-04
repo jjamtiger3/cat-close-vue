@@ -60,15 +60,15 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'CatDice',
   methods: {
-      throwDice() {
-        this.$refs.cube.classList.add('cube-roll');
-        setTimeout((cube) => {
-          cube.classList.remove('cube-roll');
-          cube.classList.add(this.randomNumber());
-        }, 0.5, this.$refs.cube);
-      },
-      randomNumber() {
-        return `face-${Math.floor(Math.random() * 6)}`;
+    throwDice() {
+      this.$refs.cube.classList.add('cube-roll');
+      setTimeout((cube) => {
+        cube.classList.remove('cube-roll');
+        cube.classList.add(this.randomNumber());
+      }, 100, this.$refs.cube);
+    },
+    randomNumber() {
+        return `face-${Math.floor(Math.random() * 6) + 1}`;
       },
       ...mapMutations({
         setSpinning: 'setSpinning',
