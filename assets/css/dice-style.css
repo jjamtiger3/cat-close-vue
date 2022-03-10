@@ -16,33 +16,33 @@
 
 @keyframes diceFront {
   100% {
-    transform: translateZ(-100px) rotateX(360deg) rotateY(360deg);
+    transform: translateZ(-25px) rotateX(360deg) rotateY(360deg);
   }
 }
 
 @keyframes diceRight {
   100% {
-    transform: translateZ(-100px) rotateX(360deg) rotateY(270deg);
+    transform: translateZ(-25px) rotateX(360deg) rotateY(270deg);
   }
 }
 @keyframes diceBack {
   100% {
-    transform: translateZ(-100px) rotateX(360deg) rotateY(180deg);
+    transform: translateZ(-25px) rotateX(360deg) rotateY(180deg);
   }
 }
 @keyframes diceLeft {
   100% {
-    transform: translateZ(-100px) rotateX(360deg) rotateY(450deg);
+    transform: translateZ(-25px) rotateX(360deg) rotateY(450deg);
   }
 }
 @keyframes diceTop {
   100% {
-    transform: translateZ(-100px) rotateX(270deg) rotateY(360deg);
+    transform: translateZ(-25px) rotateX(270deg) rotateY(360deg);
   }
 }
 @keyframes diceBottom {
   100% {
-    transform: translateZ(-100px) rotateX(450deg) rotateY(360deg);
+    transform: translateZ(-25px) rotateX(450deg) rotateY(360deg);
   }
 }
 
@@ -93,23 +93,25 @@
   transform: rotateY(0deg) translateZ(25px);
 }
 .cube__face--right  {
-  background: hsla(60, 100%, 50%, 0.7);
+  background: hsla(0, 100%, 50%, 0.7);
   transform: rotateY( 90deg) translateZ(25px);
 }
 .cube__face--back   {
-  background: hsla(120, 100%, 50%, 0.7);
+  background: hsla(0, 100%, 50%, 0.7);
   transform: rotateY(180deg) translateZ(25px);
 }
 .cube__face--left   {
-  background: hsla(180, 100%, 50%, 0.7);
+  background: hsla(0, 100%, 50%, 0.7);
   transform: rotateY(-90deg) translateZ(25px);
+  display: block;
 }
 .cube__face--top    {
-  background: hsla(240, 100%, 50%, 0.7);
+  background: hsla(0, 100%, 50%, 0.7);
   transform: rotateX(90deg) translateZ(25px);
+  display: block;
 }
 .cube__face--bottom {
-  background: hsla(300, 100%, 50%, 0.7);
+  background: hsla(0, 100%, 50%, 0.7);
   transform: rotateX(-90deg) translateZ(25px);
 }
 
@@ -158,25 +160,29 @@
 
 .align-self-center {
     -ms-flex-item-align: center!important;
-    align-self: center!important
+    align-self: center!important;
 }
 
 .w-50 {
-    width: 50%!important
+    width: 50%!important;
 }
 
 .w-100 {
-    width: 100%!important
+    width: 100%!important;
 }
 
 .m-2 {
-    margin: .5rem!important
+    margin: .5rem!important;
+}
+
+.m-2.half {
+  margin: .25rem!important;
 }
 
 .m-auto {
-    margin: auto!important
+    margin: 3px auto!important;
 }
 
 .mr-auto {
-    margin-right: auto!important
+    margin-right: auto!important;
 }

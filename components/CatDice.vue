@@ -25,15 +25,15 @@
         </div>
         <div class="cube__face cube__face--top">
             <div class="w-100 align-self-start d-flex justify-content-between">
-                <span class="dot dot-1 m-2"></span>
-                <span class="dot dot-2 m-2"></span>
+                <span class="dot dot-1 m-2 half"></span>
+                <span class="dot dot-2 m-2 half"></span>
             </div>
             <div class="w-100 align-self-center d-flex justify-content-center">
-                <span class="dot"></span>
+                <span class="dot m-2 half"></span>
             </div>
             <div class="w-100 align-self-end d-flex justify-content-between">
-                <span class="dot m-2"></span>
-                <span class="dot m-2"></span>
+                <span class="dot m-2 half"></span>
+                <span class="dot m-2 half"></span>
             </div>
         </div>
         <div class="cube__face cube__face--bottom">

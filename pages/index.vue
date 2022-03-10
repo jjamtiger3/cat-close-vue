@@ -75,6 +75,7 @@ export default {
         const dice = this.$refs[i];
         dice.throwDice();
       }
+      this.setCardIsExist(false);
     },
     _setNumberList() {
       this.numberList = [
