@@ -61,18 +61,22 @@ export default {
   name: 'CatDice',
   methods: {
     throwDice() {
-      this.$refs.cube.classList.add('cube-roll');
-      setTimeout((cube) => {
-        cube.classList.remove('cube-roll');
-        cube.classList.add(this.randomNumber());
-      }, 100, this.$refs.cube);
+      const cube = this.$refs.cube;
+      cube.classList = [];
+      cube.classList.add('cube');
+      cube.classList.add('cube-roll');
+      setTimeout((_cube) => {
+        const className = this.randomNumber();
+        _cube.classList.remove('cube-roll');
+        _cube.classList.add(className);
+        this.$store.className = className;
+      }, 100, cube);
     },
     randomNumber() {
         return `face-${Math.floor(Math.random() * 6) + 1}`;
       },
       ...mapMutations({
         setSpinning: 'setSpinning',
-        spinning: 'getSpinning',
         setReSelected: 'setReSelected'
       })
   },
