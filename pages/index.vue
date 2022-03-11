@@ -76,6 +76,9 @@ export default {
         dice.throwDice();
       }
       this.setCardIsExist(false);
+      // 굴린후 주사위 다시선택
+      // 주사위 다시 굴린 후 2개씩 카드에 배치
+      // 카드에 배치 후 카드 값과 비교하여 점수 획득
     },
     _setNumberList() {
       this.numberList = [
