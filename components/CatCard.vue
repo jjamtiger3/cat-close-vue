@@ -1,9 +1,9 @@
 <template>
     <div class="cat-card-container" :class="this.type" v-on:click="setFliped()" >
-        <div class="cat-card-item front" v-if="this.fliped" :class="{fliped: this.fliped}">
+        <div class="cat-card-item front" v-if="this.fliped" :class="{'fliped': this.fliped}">
           <img width="140" height="210" :src="`/images/cat_${this.cats}.png`">
         </div>
-        <div class="cat-card-item back" v-if="!this.fliped" :class="{fliped: this.fliped}">
+        <div class="cat-card-item back" v-if="!this.fliped" :class="{'fliped': this.fliped}">
           <img width="140" height="210" :src="`/images/cat_back_type_${this.cats > 6 ? 'large' : 'small'}.png`" />
         </div>
     </div>
@@ -67,6 +67,7 @@ export default {
   },
   mounted() {
       console.log(this.cats)
+      this.fliped = false;
   }
 }
 </script>

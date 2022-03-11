@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       drawCnt: 9,
-      numberList: [],
+      numberList: []
     }
   },
   computed: {
